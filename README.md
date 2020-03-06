@@ -1,0 +1,71 @@
+# Estilos Globales usando styled-components 💅
+
+Estilos para resetear los estilos que trae por defecto cada navegador, y aparte podemos agregar nuestros estilos globales.
+
+### GlobalStyles.js
+
+```js
+    import { createGlobalStyle } from 'styled-components';
+
+    // Reset styles for all browsers
+    export const GlobalStyle = createGlobalStyle`
+        html {
+            box-sizing: border-box;
+            font-family: -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI', Roboto, Oxygen,
+            Ubuntu, Cantarell, 'Open Sans',
+            'Helvetica Neue', sans-serif;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        ul, li, h1, h2, h3, p, button {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            background: transparent;
+            border: 0;
+            outline: 0;
+        }
+
+        body {
+            background: #fefefe;
+            height: 100vh;
+            margin: 0 auto;
+            max-width: 500px;
+            overscroll-behavior: none;
+            width: 100%;
+        }
+
+        #app {
+            box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 10px;
+        }
+    `;
+```
+
+### App.js
+
+```js
+    import React from 'react';
+    import { GlobalStyle } from './GlobalStyles';
+    import { DummyComponent } from './DummyComponent';
+
+    export const App = () => (
+        <div>
+            <GlobalStyle />
+            <DummyComponent />
+        </div>
+    );
+```
